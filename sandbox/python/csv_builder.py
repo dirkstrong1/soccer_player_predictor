@@ -60,6 +60,14 @@ gk_df = fifa_df[fifa_df['position'] == 'GK']
 field_df = fifa_df[fifa_df['position'] != 'GK']
 
 # clean up data by dropping unnecessary columns ___
+fifa_clean_df = fifa_df.drop(columns=['unnamed:_0', 'club',
+                                     'league','nationality', 'position',
+                                      'age','preferred_foot','attacking_workrate',
+                                      'defensive_workrate',
+                                      'skill_moves', 'weak_foot']
+                                      ).set_index('player_name')
+
+
 field_clean_df = field_df.drop(columns=['unnamed:_0', 'club',
                                      'league','nationality', 'position',
                                       'age','preferred_foot','attacking_workrate',
@@ -76,6 +84,10 @@ gk_clean_df = gk_df.drop(columns=['unnamed:_0', 'club',
                                       ).set_index('player_name')
 
 
+fifa_clean_df = (fifa_clean_df
+           .filter(relevant_columns)
+           .dropna())
+
 field_clean_df = (field_clean_df
            .filter(field_indi_columns)
            .dropna())
@@ -89,9 +101,9 @@ gk_clean_df = (gk_clean_df
 #fifa_clean_df.to_csv("write_data/clean_all_players.csv", index=True)
 
 # scale it ----
-#fifa_scaled_df = (StandardScaler()
-                  #.fit(fifa_clean_df)
-                  #transform(fifa_clean_df))
+        #fifa_scaled_df = (StandardScaler()
+                        #.fit(fifa_clean_df)
+                        #transform(fifa_clean_df))
 
 
 

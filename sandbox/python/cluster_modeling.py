@@ -16,9 +16,6 @@ from sklearn.discriminant_analysis import QuadraticDiscriminantAnalysis
 
 
 
-sm = SMOTE(random_state=1)
-X_train_res, y_train_res = sm.fit_resample(X_train, y_train)
-
 names = ["Nearest Neighbors", "Linear SVM", "Gaussian Process",
          "Decision Tree", "Random Forest", "AdaBoost",
          "Naive Bayes", "QDA"]

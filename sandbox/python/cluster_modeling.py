@@ -56,7 +56,8 @@ def bag_model(df, target, depth, samples):
 
     rt = DecisionTreeRegressor(random_state=1, max_depth=depth)
 
-    rf = RandomForestRegressor(n_estimators=100, max_features='sqrt', random_state=1)
+    rf = RandomForestRegressor(n_estimators=100, max_features='sqrt',
+                               random_state=1)
 
     bag = BaggingRegressor(n_estimators=100,
                        max_features=X.shape[1],

@@ -18,12 +18,12 @@ rf = RandomForestClassifier(n_estimators=300,
                             random_state=10)
 rf.fit(X_train, y_train)
 
-pipe = Pipeline(steps=[("model", rf)])
+pipe = Pipeline(steps=[("football_model", rf)])
 
 pipe.fit(X_train, y_train)
 
 y_pred = pipe.predict(X_test)
 
-dump(pipe, 'model.joblib')
+dump(pipe, 'football_model.joblib')
 
-loaded = load('model.joblib')
+loaded = load('football_model.joblib')

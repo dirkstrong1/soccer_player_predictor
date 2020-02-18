@@ -5,14 +5,15 @@ suppressPackageStartupMessages(library(dplyr))
 library(scales)
 
 #load necessary data
-field_radar <- read_csv('field_radar.csv')
+#field_radar = read_csv('write_data/field_radar.csv')
 
 # data processing ----
-fifa_radar <- fifa_radar %>%
+field_radar <- field_radar %>%
   #as_tibble(rownames = 'classification') %>%
   mutate_at(vars(-'classification'),function(x) x/100)%>%
-
+  head(5)
 
 # visualization radar plot ----
 ggradar(field_radar) +
-  ggsave("field_radar_plot.png")
+  ggsave("fifa_radar_plot.png")
+
